@@ -1,9 +1,11 @@
-import kagglehub
+import kaggle
 
-# Download latest version
-##path = kagglehub.dataset_download("shivam2503/diamonds")
+kaggle.api.authenticate() ## Se autentifica gracias al archivo alojado en ./Kaggle
 
-##print("Path to dataset files:", path)
+print(kaggle.api.infodump)
 
-KAGLE_API_TOKEN = "KGAT_023a462286d3b6d006e93d9eb9e44b98"
+kaggle.api.dataset_download_files('shivam2503/diamonds', path = 'data', unzip = True)
 
+kaggle.api.dataset_metadata('shivam2503/diamonds', path = 'data')
+
+infodump = kaggle.api.dataset_list(search='cut')
